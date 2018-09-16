@@ -1,0 +1,135 @@
+Yaakov Chaikin
+Johns Hopkins University, USA
+Yaakov's website: https://ClearlyDecoded.com (web development tutorials for later reference)
+Coursera link to the course: https://www.coursera.org/learn/html-css-javascript-for-web-developers/home/welcome
+github link for source code (just open this link and you can already see the code by navigating to appropriate folders): https://github.com/jhu-ep-coursera/fullstack-course4
+
+
+
+
+Tools:
+	Github (just sign up onto github.com) -> go and read git book (google "git book" -> first link)
+	Google chrome + chrome developer tools (CDT) -> CDT already comes with chrome by default (F12 key) - there is no separate installation
+	Sublime Text 3 (google "sublime text 3" -> first link = https://www.sublimetext.com/3 )
+	Git (google "download git for windows" -> first link = https://git-scm.com/download/win ) -> this will automatically download the git installer -> when running the installation wizard, in the "Adjusting your PATH environment" step, select "use Git from the windows command prompt", and in the step "Configure the terminal emulator to use with Git Bash", select the "use Windows' default console window"; these are the only two deviations from default selections in the installation wizard
+		check the command prompt cmd command "git --version"
+	Node.js (google "download nodejs for windows") -> first link = https://nodejs.org/en/download/ -> choose .msi 64 bit)
+		Install it with all the default settings in the wizard
+		check the command prompt cmd command "node --version" and also "npm --version" - node package manager (npm) is what we need to install browser sync
+	Browser sync -> node.js is required for this (actually you install nodejs just to help you install browsersync)
+		google "browser sync" and the first link = https://browsersync.io/ will give you the command to run in order to install browsersync = "npm install -g browser-sync"
+		Run this command to install browsersync
+		check the command prompt cmd command "browser-sync --version"
+
+
+
+
+
+
+Github.com
+	go and read git book (google "git book" -> first link = https://git-scm.com/book )
+	Read through this a bit (extra reading - 4 hours)
+	You will see a + sign at the right top corner (this means create)
+	You can create a new repository from this + sign
+	By default the repo will be public -> If you want to make it private then you have to pay for it
+	Always tick the "initialize this repo with a README" checkbox
+	Now you can already interact with this github repository using the git commands in your command line prompt
+
+	Suppose you want github to host web applications for you -> go to github.com -> settings -> github pages -> automatic page generator -> launch automatic page generator -> next page continue to layouts -> next page layout chooser -> Publish page
+	This actually creates a separate branch to your repo - branches means parallel streams of the same repository
+	Only what is there in this new branch will show up in your web page
+	You can go to any repo and checkout the branches dropdown
+	Now go to settings -> github pages - here you will find your web page link - just click it and it shows some preloaded content already
+
+
+
+
+
+Git commands:
+	Go to https://github.com/srbhai/coursera-test and shift to branch "gh-pages"
+	You will now see a link - with a button "copy to clipboard" next to it - click this button
+	goto command prompt cmd -> git clone <link> -> this will copy the content to your local machine
+	git status -> shows which branch is active and that is branch master
+	but to shift to the gh-pages branch -> git checkout gh-pages -> git status
+	mkdir site -> cd site -> empty
+	save any sublime text code in this directory as index.html
+	git status -> shows that something is NOT in sync
+	cd .. -> git add . -> this means full folder gets marked for committing (you can specify path of any folder or file instead of .)
+	it is still local only
+	git status -> shows what is marked for commit
+	git commit -m "my new code" -> show the message "my new code"
+	this is still locally committed
+	git status -> your branch gh-pages (local) is ahead by 1 commmit (remote)
+	git push
+	now gh-pages local and gh-pages remote (github.com) are in sync
+	now run that settings URL with /site again and it runs your code !! by default it runs index.html
+	git pull -> when someone makes a change in the github.com and you want to get that change
+
+	go into the folder site and enter this command: browser-sync start --server --directory --files "*" -> this means start browser sync in server mode which means your laptop acts like a server and it starts watching all (*) files in this directory -> whenever anything changes within the site directory, then the browser will reload
+	this will open the browser and as soon as you change your html, it automatically refreshes the browser page
+
+
+
+
+
+
+HTML:
+	hyper text markup language
+	hypertext => text which contains links to other text -> this is nothing but the web itself, one text linking to another and on and on forming a web of texts
+	nowadays it is hypermedia (video, image, audio, etc)
+	markup => mark something up or annotate, so if you want to display some text then you mark it up using tags like p (paragraph) or title. So your content which you expect to be displayed is marked up with specific tags which give you the desired result. You wrap you content with some markup / tags
+	Thus the machine can interpret that this content is the title of this web page
+	But html is also human-readable
+	Language => syntax, open tag, close tag, how the tags can be nested, etc -> the rules which control the tags
+	first tag opened has to be last tag closed, last tag opened first to be closed
+	cant close a head tag before closing a child tag
+	So there can be WRONG or erroneous HTML
+	HTML also is something semantic => tags can mean something to a human
+
+
+
+
+
+
+HTML, CSS, JS:	the 3 basic elements of a web application
+	HTML provides structure to the page. It just tells us what components make up the page. But it does not tell anything about the properties of these components.
+	Like HTML tells us there are 2 paragraphs, 1 title and 1 footer, and which comes first and which comes last. But nothing about how the title looks or what is the colour of the paragraph and so on.
+	Just like when you are describing a house, it just tells that the house has a bedroom hall and kitchen, but nothing about how they look.
+	HTML annotates our content and defines the structure of a document.
+
+	CSS tells us the colour and style and layouts and font sizes => stylistic elements. Styling does NOT change the structure in anyway.
+
+	JS provides behaviour and functionality. Like what happens when a html page finishes loading into the browser, or what happens when I click on the heading.
+
+	Each of these 3 has its own unique purpose, and they dont overlap or conflict each other.
+
+
+
+
+
+
+
+
+History:
+	world wide web consortium (w3c): came up with first html standards in 1997 HTML 4.0/4.01. It was not enforced on the browser vendors.
+	They also came up with XHTML 1.0 standard which was based on XML and was much more rigid and very clear.
+	w3c was moving too slow and it was not moving in the direction the major browser vendors wanted. So the main browser vendors started a new org
+	Web hypertext application technology group (WHATWG): 2004 - They were the drivers behind HTML5
+	w3c was actually producing standards which was meant for the browsers but they were following WHATWG
+	w3c starting working together with WHATWG in 2007
+	Together they produced HTML5 in 2011
+	WHATWG is always ahead of w3c
+	w3c makes standards for HTML5
+	WHATWG makes standards for next versions of HTML (HTMLx.0) constantly evolving HTML
+	w3c slowly analyses the latest and stable outputs of WHATWG and adopts them into their standards
+	browsers are nowadays silent-updating/evergreen browsers meaning they get updated automatically without u knowing - mainly for security purposes
+
+
+
+
+
+
+
+https://www.w3.org/TR/html5/ - very academic reading
+caniuse.com	- keeps track of latest in CSS, HTML, JS, SVG to tell you which browser supports what - so that you only use tags which most browsers support
+https://validator.w3.org/ - to check your html
